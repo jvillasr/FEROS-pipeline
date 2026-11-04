@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Restore the required G2, K5 and M2 velocity masks omitted from the initial
+  source snapshot, and check all 31 required data files during environment
+  validation.
+
 This FEROS-specific MPIA adaptation derives from CERES by Rafael Brahm,
 Andrés Jordán and Néstor Espinoza. See README.md and License.md for attribution
 and source provenance.
