@@ -31,23 +31,27 @@ preserved.
 
 ## Environment
 
-The development environment uses `uv` and Python 3.9, with dependencies pinned
-in `pyproject.toml` and `uv.lock`:
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and Python
+3.9. Dependencies are pinned in `pyproject.toml` and `uv.lock`:
 
 ```bash
-uv sync
+uv sync --locked
 uv run python scripts/build_extensions.py
 uv run python scripts/check_environment.py
 ```
 
-This source distribution requires a C compiler, a Fortran compiler and the GSL
-development libraries for the Marsh and CCF extensions. `uv sync` alone does not
-build these modules; use the build helper shown above. Compiled binaries are
-kept local and must be rebuilt for the active Python version and platform.
+This source distribution requires C and Fortran compilers, matching Python
+development headers and the GSL development libraries for the Marsh and CCF
+extensions. Building the pinned PycURL dependency from source also needs libcurl
+development files and `curl-config` on the command path; see the
+[PycURL installation instructions](https://github.com/pycurl/pycurl/blob/REL_7_45_1/INSTALL.rst).
+`uv sync` alone does not build the CERES modules; use the build helper shown
+above. Compiled binaries are kept local and must be rebuilt for the active
+Python version and platform.
 The helper places build work under `FEROS_BUILD_ROOT` when set, then `TMPDIR`,
 or otherwise the normal user cache. Build work is retained for inspection;
 the printed directory can be removed after it is no longer needed.
-The current validation applies to the MPIA development environment and the
+Validation includes a fresh Linux installation and a reduction from raw on the
 recorded validation night; installation on other platforms remains to be tested.
 
 ## Run a FEROS reduction

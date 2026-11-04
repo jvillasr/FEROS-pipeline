@@ -45,8 +45,10 @@ artefact diagnostics remain experimental.
 
 ## Fresh installation verification
 
-On 4 November 2026, GitHub checkout `c980298` was tested on Linux with Python
-3.9.25, uv 0.13.7, GCC/GFortran and GSL 2.6. The test used a new environment,
+On 4 November 2026, GitHub checkout `c980298` was built on Linux with Python
+3.9.25, uv 0.13.7, GCC/GFortran and GSL 2.6. Runtime and reduction checks then
+used `c56766a`, which adds worker-cache handling without changing scientific
+code or dependencies. The test used a new environment,
 newly built Marsh/CCF extensions, isolated caches and an empty Astropy
 configuration directory. No development-checkout source, binaries or environment
 were used by that installation.
@@ -61,5 +63,21 @@ The initial source release omitted the three velocity masks; the fresh test
 caught the omission. The original masks have been restored unchanged and the
 environment checker now verifies required runtime data as well as imports.
 
-This installation check is separate from a complete science reduction. Other
-platforms and the optional external classification grid remain untested.
+The fresh checkout also completed a one-target reduction from the 27 June 2026
+raw night in 44 minutes 49 seconds, building calibrations from raw. The
+compatibility check accepted all 304 required calibration products. The target
+worker reused only those new products and collected one spectrum and one result
+row. All 15 spectrum data arrays were finite, and the merged wavelength grid was
+strictly increasing.
+
+The six main spectrum arrays matched exactly between the calibration-seed
+extraction and the target worker. Against the previous validated Python 3.9
+reduction, all 14 numeric result-table fields matched at their written precision,
+including velocity and timestamp. Extracted and blaze-corrected flux matched
+exactly; the largest normalised merged-flux difference was about `7.1e-11`.
+The original merged grid and scientific defaults are unchanged.
+
+This verifies a fresh Linux installation and one science exposure, including
+calibration generation and reuse. It does not test other observing nights,
+concurrent target workers in this installation, other platforms or the optional
+external classification grid.
