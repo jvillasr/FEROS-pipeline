@@ -44,6 +44,9 @@ This source distribution requires a C compiler, a Fortran compiler and the GSL
 development libraries for the Marsh and CCF extensions. `uv sync` alone does not
 build these modules; use the build helper shown above. Compiled binaries are
 kept local and must be rebuilt for the active Python version and platform.
+The helper places build work under `FEROS_BUILD_ROOT` when set, then `TMPDIR`,
+or otherwise the normal user cache. Build work is retained for inspection;
+the printed directory can be removed after it is no longer needed.
 The current validation applies to the MPIA development environment and the
 recorded validation night; installation on other platforms remains to be tested.
 
