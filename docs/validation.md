@@ -43,11 +43,23 @@ The inherited merged wavelength grid remains 3900–6770 Å. Extraction, blaze
 correction and normalisation defaults are unchanged. Full-range wavelength and
 artefact diagnostics remain experimental.
 
-## Publication checks and limits
+## Fresh installation verification
 
-The release audit traces local Python imports and required reference files,
-checks that archived files are preserved, excludes private and generated files
-from the publication tree and history, and verifies the retained scientific
-sources against the pre-cleanup snapshot. Import and planning smoke checks use
-the existing development environment. No fresh extension build or new full-night
-reduction is part of this packaging check.
+On 4 November 2026, GitHub checkout `c980298` was tested on Linux with Python
+3.9.25, uv 0.13.7, GCC/GFortran and GSL 2.6. The test used a new environment,
+newly built Marsh/CCF extensions, isolated caches and an empty Astropy
+configuration directory. No development-checkout source, binaries or environment
+were used by that installation.
+
+The documented dependency/build commands succeeded. All 18 checked imports came
+from the fresh checkout or its new environment. All 31 required reference files
+were present, and deliberately hiding one velocity mask made the environment
+checker fail. Small compiled extraction and correlation calls, Astropy timing
+corrections, command help and read-only FEROS-night planning passed.
+
+The initial source release omitted the three velocity masks; the fresh test
+caught the omission. The original masks have been restored unchanged and the
+environment checker now verifies required runtime data as well as imports.
+
+This installation check is separate from a complete science reduction. Other
+platforms and the optional external classification grid remain untested.

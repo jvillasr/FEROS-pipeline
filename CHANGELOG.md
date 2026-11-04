@@ -7,6 +7,7 @@
   validation.
 - Respect external build storage and retain build work for inspection instead
   of creating and deleting scratch directories in the source tree.
+- Let reduction workers honour the caller's uv cache configuration.
 
 This FEROS-specific MPIA adaptation derives from CERES by Rafael Brahm,
 Andrés Jordán and Néstor Espinoza. See README.md and License.md for attribution

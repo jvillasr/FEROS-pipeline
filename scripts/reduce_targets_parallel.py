@@ -112,8 +112,6 @@ def dirout_arg(path: Path) -> str:
 def feros_command(root: Path, raw_dir: Path, dirout: Path, target: str, npools: int, calibdir: Path | None = None) -> list[str]:
     command = [
         "uv",
-        "--cache-dir",
-        ".uv-cache",
         "run",
         "python",
         str(root / "feros" / "ferospipe.py"),
@@ -134,8 +132,6 @@ def feros_command(root: Path, raw_dir: Path, dirout: Path, target: str, npools: 
 def calibration_compatibility_command(root: Path, raw_dir: Path, calibration_dir: Path, output_dir: Path, label: str) -> list[str]:
     return [
         "uv",
-        "--cache-dir",
-        ".uv-cache",
         "run",
         "python",
         str(root / "scripts" / "check_calibration_compatibility.py"),
