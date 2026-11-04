@@ -1,0 +1,63 @@
+data/COELHO2014/*
+data/COELHO_MODELS/*
+data/COELHO_MODELS/*/
+
+# Private development instructions stay on the local checkout.
+/AGENTS.md
+/CLAUDE.md
+/NOTES.md
+/ROADMAP.md
+/DECISIONS.md
+
+# Archived legacy utilities stay local.
+/install.py
+/clean.py
+/functions.pdf
+/utils/Continuum/
+/utils/FastRotators/
+/utils/SSEphem/
+
+# Retired correction tools are kept only in the local archive.
+/Correction.py
+/CorrectionMod.py
+
+# Local Python environments and caches
+.venv/
+.uv-cache/
+.matplotlib-cache/
+.build-tmp/
+.tmp/
+__pycache__/
+*.py[cod]
+*.so
+*.dylib
+*.o
+*.a
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Reduction outputs stay local to the private development copy.
+outputs/*
+!outputs/.gitkeep
+*_red/
+**/proc/
+*.log
+
+# Raw observations and local credentials must not be published.
+*.fits
+*.fits.gz
+*.fit
+*.fit.gz
+*.fts
+*.fz
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS/editor by-products
+.DS_Store
+*.swp
+*.swo
